@@ -1,0 +1,25 @@
+header
+  nav.navbar.navbar-expand-lg.tt-navbar
+    .container
+      button.navbar-toggler.tt-navbar__toggler.collapsed aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNav" data-toggle="collapse" type="button"
+        span class="icon-bar top-bar"
+        span class="icon-bar middle-bar"
+        span class="icon-bar bottom-bar"
+        span class="sr-only" Toggle navigation
+      / a.logo.header__logo href="/"
+        = image_tag "white_logo.svg", alt: "logo"
+      / .tt-dd.ml-xl-5.ml-lg-4.d-none.d-xl-block
+        = link_to '#', aria: { expanded: false, haspopup: true }, data: { toggle: 'dropdown' },
+            id: 'dropLang', class: 'tt-dd__toggle tt-dd__toggle_up' do
+          = t("#{locale}")
+        .dropdown-menu.tt-dd__menu aria-labelledby="dropLang"
+          - I18n.available_locales.each do |locale_i|
+            - if locale != locale_i
+              = link_to settings_locale_path(locale: locale_i), class: "tt-dd__item", method: :patch do
+                = t("#{locale_i}")
+      / #navbarNav.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto.tt-navbar__nav
+          li.nav-item.tt-navbar__nav-link
+            = link_to 'Log in', login_path, class: 'nav-link'
+          li.nav-item.tt-navbar__nav-link
+            = link_to 'Sign up', signup_path, class: 'nav-link'
