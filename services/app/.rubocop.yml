@@ -28,7 +28,17 @@ Style/NegatedIf:
   Enabled: false
 
 Metrics/LineLength:
+  Exclude:
+    - 'config/initializers/simple_form_bootstrap.rb'
   Max: 150
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/initializers/simple_form_bootstrap.rb'
+
+Metrics/ParameterLists:
+  Exclude:
+    - 'app/controllers/concerns/flash_helper.rb'
 
 Metrics/MethodLength:
   Max: 30
@@ -38,6 +48,10 @@ Rails:
 
 Rails/FilePath:
   Enabled: false
+
+Rails/Output:
+  Exclude:
+    - 'db/seeds.rb'
 
 Style/SymbolArray:
   Enabled: true
