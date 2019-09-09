@@ -1,0 +1,129 @@
+.header {
+  &__logo {
+    img {
+      height: 50px;
+    }
+  }
+}
+
+.tt-navbar {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background: $grey;
+
+  &__toggler {
+    border: none;
+    background: transparent !important;
+    padding: 0;
+
+    &:focus {
+      outline: none;
+      background: transparent !important;
+    }
+
+    &_white {
+      @media (min-width: $md) {
+        .icon-bar {
+          background-color: #349ad9 !important;
+        }
+      }
+    }
+
+    .icon-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      border-radius: 1px;
+      background-color: #349ad9;
+      transform: rotate(0deg) translate(0px, 0px);
+      transition: ease all .2s;
+
+      &+.icon-bar {
+        margin-top: 4px;
+      }
+
+      &:nth-child(2) {
+        width: 16px;
+        transition: ease all .2s;
+      }
+    }
+
+    &:hover>.icon-bar:nth-child(2) {
+      width: 22px;
+      transition: ease all .2s;
+    }
+
+    &:active>.icon-bar:nth-child(2) {
+      width: 22px;
+      transition: ease all .2s;
+    }
+
+    &:not(.collapsed) .icon-bar:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 4px);
+      transition: ease all .2s;
+    }
+
+    &:not(.collapsed) .icon-bar:nth-child(2) {
+      opacity: 0;
+      transition: ease all .2s;
+    }
+
+    &:not(.collapsed) .icon-bar:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -4px);
+      transition: ease all .2s;
+    }
+  }
+
+
+  &__nav {
+    @media (max-width: $md) {
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    &-link {
+      padding: 0 1rem;
+
+      @media (max-width: $md) {
+        text-align: center;
+        padding: 0.5rem 0;
+      }
+
+      a {
+        color: $tt-blue !important;
+        -webkit-transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        position: relative;
+
+        &:hover {
+          color: lightblue !important;
+
+          &::after {
+            opacity: 1;
+            bottom: -1px;
+
+            @media (max-width: $md) {
+              bottom: -6px;
+            }
+          }
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: 20%;
+          opacity: 0;
+          width: 100%;
+          height: 100%;
+          border-bottom: 1px solid lightblue;
+          -webkit-box-shadow: inset 0px -1px 0px 0px lightblue;
+          -moz-box-shadow: inset 0px -1px 0px 0px lightblue;
+          box-shadow: inset 0px -1px 0px 0px lightblue;
+          -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+        }
+      }
+    }
+  }
+}

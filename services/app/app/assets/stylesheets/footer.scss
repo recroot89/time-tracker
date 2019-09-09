@@ -1,0 +1,39 @@
+.footer {
+  bottom: 0;
+  width: 100%;
+  background: $grey;
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 0;
+
+    @media (max-width: $sm) {
+      padding: 10px 0;
+    }
+  }
+
+  .footer-copyright {
+    padding: 10px 0;
+
+    &__paragraph {
+      font-size: 14px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      letter-spacing: normal;
+      color: $tt-darkgrey;
+      margin: 0;
+
+      @media (max-width: $sm) {
+        text-align: center;
+      }
+    }
+
+    &__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

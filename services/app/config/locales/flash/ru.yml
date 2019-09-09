@@ -1,0 +1,12 @@
+---
+ru:
+  flash:
+    web:
+      sessions:
+        create:
+          success: Вход успешно выполнен
+          error: Что-то пошло не так
+      users:
+        create:
+          success: Регистрация успешно завершена
+          error: Что-то пошло не так

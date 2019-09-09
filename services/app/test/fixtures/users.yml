@@ -1,0 +1,15 @@
+---
+default: &default
+  email: <%= Faker::Internet.email %>
+  name: <%= Faker::Name %>
+  password_digest: <%= BCrypt::Password.create('password') %>
+
+admin:
+  <<: *default
+  email: admin@test.local
+  name: Admin
+
+client:
+  <<: *default
+  email: client@test.local
+  name: Client

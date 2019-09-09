@@ -1,0 +1,12 @@
+---
+en:
+  flash:
+    web:
+      sessions:
+        create:
+          success: User login was completed successfully
+          error: Something went wrong
+      users:
+        create:
+          success: User registration was completed successfully
+          error: Something went wrong

@@ -1,0 +1,11 @@
+- content_for :header do
+  = t('.header')
+.container
+  .row.d-flex
+    .col-lg-6.mx-auto
+      h1 Registration
+      = simple_form_for @user, url: signup_path, wrapper: 'vertical_form' do |f|
+        = f.input :name
+        = f.input :email
+        = f.input :password
+        = f.submit class: 'btn btn-primary'
