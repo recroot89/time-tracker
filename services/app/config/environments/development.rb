@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+Dotenv.load(Rails.root.join('../../.env'))
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 

@@ -1,0 +1,12 @@
+---
+app_port: <%= ENV.fetch('APP_PORT', 'test') %>
+
+rails_log_to_stdout: <%= ENV.fetch('RAILS_LOG_TO_STDOUT', 'test') %>
+rails_env: <%= ENV.fetch('RAILS_ENV', 'test') %>
+node_env: <%= ENV.fetch('NODE_ENV', 'test') %>
+
+db_name: <%= ENV.fetch('DB_NAME', 'time_tracker') %>
+db_username: <%= ENV.fetch('DB_USERNAME', 'postgres') %>
+db_password: <%= ENV.fetch('DB_PASSWORD', '') %>
+db_hostname: <%= ENV.fetch('DB_HOSTNAME', 'db') %>
+db_port: <%= ENV.fetch('DB_PORT', '5432') %>

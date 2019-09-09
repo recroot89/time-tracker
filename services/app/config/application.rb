@@ -6,6 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Dotenv.load('../../.env') if Rails.env.development? || Rails.env.test?
+
 module TimeTracker
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
