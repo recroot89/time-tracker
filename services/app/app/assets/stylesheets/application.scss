@@ -1,0 +1,25 @@
+$bootstrap-sass-asset-helper: true;
+@import "bootstrap/scss/bootstrap.scss";
+
+@import '_variables';
+@import './header';
+@import './footer';
+
+.logo {
+  display: inline-block;
+  padding: 0;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+  height: 50px;
+}
+
+.page-text {
+  &__p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    color: #2b2a29;
+  }
+}
