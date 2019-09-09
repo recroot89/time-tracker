@@ -6,10 +6,19 @@ html
     title = content_for?(:page_title) ? yield(:page_title) : t('meta.default_page_title')
     = yield :head
     = csrf_meta_tags
+    = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all'
     = stylesheet_pack_tag 'application'
   body
-    = render 'layouts/header'
+    #app
+      = render 'layouts/header'
+      .flasher.flash-messages
+      - flash.each do |type, msg|
+        .alert.alert-dismissable.flash-alert.mb-0 class="alert-#{type == 'error' ? 'danger' : type}"
+          .container
+            button.close aria-hidden="true" data-dismiss="alert" type="button"  &times
+            = msg
+
     .content
       = yield
     = render 'layouts/footer'
