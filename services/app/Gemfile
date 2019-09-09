@@ -13,6 +13,7 @@ gem 'config'
 gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'webpacker', '~> 4.0'
+
 ## frontend
 
 gem 'jbuilder', '~> 2.7'
@@ -21,7 +22,6 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'slim-rails'
 # gem 'sass-rails', '~> 5'
-# gem 'turbolinks', '~> 5'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
