@@ -1,0 +1,2 @@
+time_tracker_rails_log_to_stdout: true
+time_tracker_app_port: 8080

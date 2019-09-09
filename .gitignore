@@ -1,0 +1,10 @@
+tmp
+.env
+*.retry
+.docker-sync
+.DS_Store
+
+# assets
+services/app/public/packs/*
+services/app/public/javascripts/*
+services/app/public/i18n/*

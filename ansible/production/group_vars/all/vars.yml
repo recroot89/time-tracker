@@ -1,0 +1,6 @@
+time_tracker_rails_env: production
+time_tracker_node_env: production
+time_tracker_run_user: ubuntu
+time_tracker_run_user_home: /home/ubuntu
+time_tracker_env_file: '{{ time_tracker_run_user_home }}/.env'
+time_tracker_docker_network_name: time-tracker-main
