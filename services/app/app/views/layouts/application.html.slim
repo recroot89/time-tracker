@@ -9,10 +9,11 @@ html.h-100 lang="en"
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all'
     = stylesheet_pack_tag 'application'
+    = javascript_pack_tag "application"
   body.d-flex.flex-column.h-100
     #app
       = render 'layouts/header'
-      .flasher.flash-messages
+      .flasher
         - flash.each do |type, msg|
           .alert.alert-dismissable.flash-alert.mb-0 class="alert-#{type == 'error' ? 'danger' : type}"
             .container
