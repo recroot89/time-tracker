@@ -123,6 +123,8 @@ GEM
       dry-equalizer (~> 0.2, >= 0.2.2)
       dry-inflector (~> 0.1, >= 0.1.2)
       dry-logic (~> 1.0, >= 1.0.2)
+    enumerize (2.3.1)
+      activesupport (>= 3.2)
     erubi (1.8.0)
     execjs (2.7.0)
     faker (2.2.2)
@@ -305,6 +307,7 @@ DEPENDENCIES
   capybara
   config
   dotenv-rails
+  enumerize
   faker
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
