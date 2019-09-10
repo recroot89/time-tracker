@@ -4,8 +4,11 @@ en:
     web:
       sessions:
         create:
-          success: User login was completed successfully
+          success: You were successfully logged in
           error: Something went wrong
+        destroy:
+          success: You were successfully logged out
+          error: Invalid email or password combination
       users:
         create:
           success: User registration was completed successfully

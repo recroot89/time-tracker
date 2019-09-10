@@ -5,6 +5,9 @@ ru:
       sessions:
         create:
           success: Вход успешно выполнен
+          error: Неверные почта или пароль
+        destroy:
+          success: Выход успешно выполнен
           error: Что-то пошло не так
       users:
         create:

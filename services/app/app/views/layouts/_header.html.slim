@@ -8,8 +8,7 @@ header
         span class="sr-only" Toggle navigation
       a.logo.header__logo href="/"
         = image_tag "logo.svg", alt: "logo"
-      a href="/"
-        h2.pl-2.black Time Tracker
+      a.navbar-brand(href="/") Time Tracker
       / .tt-dd.ml-xl-5.ml-lg-4.d-none.d-xl-block
         = link_to '#', aria: { expanded: false, haspopup: true }, data: { toggle: 'dropdown' },
             id: 'dropLang', class: 'tt-dd__toggle tt-dd__toggle_up' do
@@ -21,7 +20,11 @@ header
                 = t("#{locale_i}")
       #navbarNav.collapse.navbar-collapse
         ul.navbar-nav.ml-auto.tt-navbar__nav
-          li.nav-item.tt-navbar__nav-link
-            = link_to 'Login', login_path, class: 'nav-link'
-          li.nav-item.tt-navbar__nav-link
-            = link_to 'Signup', signup_path, class: 'nav-link'
+          - if logged_in?
+            li.nav-item.tt-navbar__nav-link
+              = link_to 'Logout', logout_path, method: :delete, class: 'nav-link'
+          - else 
+            li.nav-item.tt-navbar__nav-link
+              = link_to 'Login', login_path, class: 'nav-link'
+            li.nav-item.tt-navbar__nav-link
+              = link_to 'Signup', signup_path, class: 'nav-link'

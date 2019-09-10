@@ -11,6 +11,7 @@ class Web::UsersController < Web::ApplicationController
       f(:success)
       redirect_to login_path
     else
+      f(:error)
       render 'new', status: :unprocessable_entity
     end
   rescue ActiveRecord::RecordNotUnique
