@@ -1,8 +1,11 @@
 .container
   .row.d-flex
-    .col-lg-9.mx-auto
+    .col-lg-12.mx-auto
       h1 Hello!
+  .row.d-flex
+    .col-lg-1.mx-auto
       .md-5.mb-2  
         = link_to 'Signup', signup_path, class: 'btn btn-primary'
+    .col-lg-11.mx-auto
       .md-5  
         = link_to 'Login', login_path, class: 'btn btn-primary'

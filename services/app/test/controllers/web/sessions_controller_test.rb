@@ -17,7 +17,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     assert { flash[:success] }
     assert { logged_in? }
-    assert { response.redirect_url == root_url }
+    assert { response.redirect_url == home_url }
   end
 
   test 'bad password' do

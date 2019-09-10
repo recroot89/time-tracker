@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get    '/login',   to: 'sessions#new'
     post   '/login',   to: 'sessions#create'
     delete '/logout',  to: 'sessions#destroy'
+
+    resource :home, only: [:show]
   end
 
   match '*path', to: 'application#not_found', via: :all

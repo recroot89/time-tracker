@@ -8,7 +8,7 @@ class Web::SessionsController < Web::ApplicationController
     if user&.authenticate(params[:session][:password])
       login(user)
       f(:success)
-      redirect_to root_url
+      redirect_to home_url
     else
       f(:error)
       render 'new', status: :unprocessable_entity
