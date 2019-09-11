@@ -1,14 +1,18 @@
 # Time Tracker Rails Appication
 
-## Setup
+### Manual Setup
 
-Install ansible
-
-Install docker
+Install ansible, docker, nodejs, yarn
 
 Install ruby 2.6.4 with asdf (advanced), rvm (recommended) or rbenv
 
-Create a file `{project_folder}/tmp/vault_password` and save the password inside it
+Clone the repo and go to project folder
+
+```
+cd time-tracker
+```
+
+Create a file `time-tracker/tmp/vault_password` and save the password inside it
 
 Install bundler gem
 
@@ -34,13 +38,7 @@ Install dependencies
 bundle && yarn
 ```
 
-Manually install rubocop
-
-```
-gem install rubocop
-```
-
-Run the database (run only once)
+Prepare postgresql (first run)
 
 ```
 docker run -d -p 5432:5432 -e POSTGRES_USER=app --name ttdb postgres:9.6
@@ -48,13 +46,13 @@ docker run -d -p 5432:5432 -e POSTGRES_USER=app --name ttdb postgres:9.6
 
 Next time use: `docker start ttdb`
 
-Prepare the database
+Create the database and fill with data
 
 ```
 rails db:create db:migrate db:fixtures:load
 ```
 
-Run rails server
+Run server
 
 ```
 rails s
