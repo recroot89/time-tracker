@@ -1,5 +1,5 @@
 db-recreate:
-	bin/rake db:drop db:create db:migrate db:seed
+	bin/rails db:drop db:create db:migrate db:seed
 
 start:
 	foreman start
