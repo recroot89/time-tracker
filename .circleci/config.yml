@@ -1,0 +1,71 @@
+---
+version: 2
+jobs:
+  build:
+    working_directory: ~/time-tracker/services/app
+    docker:
+      - image: circleci/ruby:2.6.4-stretch-node-browsers
+        environment:
+          PGHOST: localhost
+          PGUSER: app
+          RAILS_ENV: test
+      - image: postgres:9.6
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: time_tracker_test
+          POSTGRES_PASSWORD: ''
+    steps:
+      - checkout:
+          path: ~/time-tracker
+
+      # Restore bundle cache
+      - restore_cache:
+          keys:
+            - time-tracker-{{ checksum "Gemfile.lock" }}
+            - time-tracker-
+
+      - run:
+          name: Install Bundler
+          command: gem install bundler
+
+      - run:
+          name: Bundle install
+          command: bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      # Store bundle cache
+      - save_cache:
+          key: time-tracker-{{ checksum "Gemfile.lock" }}
+          paths:
+            - ./services/app/vendor/bundle
+
+      # Only necessary if app uses webpacker or yarn in some other way
+      - restore_cache:
+          keys:
+            - time-tracker-{{ checksum "yarn.lock" }}
+            - time-tracker-
+
+      - run:
+          name: Yarn install
+          command: yarn install --cache-folder ~/.cache/yarn
+
+      # Store yarn / webpacker cache
+      - save_cache:
+          key: time-tracker-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run:
+          name: Setup the database
+          command: bin/rails db:create db:migrate db:seed
+
+      - run:
+          name: Run linter check
+          command: bundle exec rubocop
+
+      - run:
+          name: Run the tests
+          command: bin/rake db:test:prepare && bin/rails test -d

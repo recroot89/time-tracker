@@ -1,5 +1,7 @@
 # Time Tracker Rails Appication
 
+[![CircleCI](https://circleci.com/gh/recroot89/time-tracker.svg?style=svg)](https://circleci.com/gh/recroot89/time-tracker)
+
 ### Manual Setup
 
 Install ansible, docker, nodejs, yarn
