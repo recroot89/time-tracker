@@ -1,0 +1,12 @@
+---
+admin_first:
+  user: admin
+  company: apple
+
+admin_second:
+  user: admin
+  company: google
+
+client_first:
+  user: client
+  company: google
