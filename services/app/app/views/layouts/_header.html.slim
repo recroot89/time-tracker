@@ -6,13 +6,9 @@ header
         span class="icon-bar middle-bar"
         span class="icon-bar bottom-bar"
         span class="sr-only" Toggle navigation
-      - if logged_in?
-        a.logo.header__logo href="/home"
-          = image_tag "logo.svg", alt: "logo"
-      - else      
-        a.logo.header__logo href="/"
-          = image_tag "logo.svg", alt: "logo"
-        a.navbar-brand(href="/") Time Tracker
+      a.logo.header__logo href="/"
+        = image_tag "logo.svg", alt: "logo"
+      a.navbar-brand(href="/") Time Tracker
       / .tt-dd.ml-xl-5.ml-lg-4.d-none.d-xl-block
         = link_to '#', aria: { expanded: false, haspopup: true }, data: { toggle: 'dropdown' },
             id: 'dropLang', class: 'tt-dd__toggle tt-dd__toggle_up' do
