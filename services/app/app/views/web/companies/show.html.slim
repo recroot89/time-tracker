@@ -1,0 +1,18 @@
+.container
+  .row.d-flex
+    .col-lg-12.mx-auto
+      h1.text-center.mb-5 = @company.name
+  .row.d-flex
+    .col-lg-12.mx-auto
+      table.table.table-hover
+        thead.thead-dark
+          tr
+            th ID
+            th Description
+            th Action
+        tbody
+          tr
+            td= @company.id
+            td= @company.description
+            td= link_to 'Edit', '#', class: 'btn btn-primary'
+      = link_to 'Back', home_path, class: 'btn btn-secondary'

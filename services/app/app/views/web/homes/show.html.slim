@@ -1,4 +1,18 @@
 .container
   .row.d-flex
     .col-lg-12.mx-auto
-      h1 Yee wha
+      h1.text-center.mb-5 Your companies
+  .row.d-flex
+    .col-lg-6.mx-auto
+      table.table.table-hover
+        thead.thead-dark
+          tr
+            th Name
+            th Action
+            th Employees
+        tbody
+          - current_user.companies.each do |company|
+            tr
+              td= company.name
+              td= link_to 'Show', company_path(company), class: 'btn btn-primary'
+              td= link_to 'Show', '#', class: 'btn btn-success'
