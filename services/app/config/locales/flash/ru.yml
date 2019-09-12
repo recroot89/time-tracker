@@ -1,6 +1,9 @@
 ---
 ru:
   flash:
+    auth_user:
+      error:
+        log_in: Пожалуйста, авторизуйтесь
     web:
       sessions:
         create:

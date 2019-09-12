@@ -2,6 +2,9 @@
 en:
   flash:
     web:
+      auth_user:
+        error:
+          log_in: Please log in
       sessions:
         create:
           success: You were successfully logged in
