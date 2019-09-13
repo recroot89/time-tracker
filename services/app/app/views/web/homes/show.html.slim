@@ -4,7 +4,7 @@
       h1.text-center.mb-5 Your companies
   .row.d-flex
     .col-lg-6.mx-auto
-      table.table.table-hover
+      table.table.table-borderless.table-hover
         thead.thead-dark
           tr
             th Name
@@ -13,6 +13,6 @@
         tbody
           - current_user.companies.each do |company|
             tr
-              td= company.name
-              td= link_to 'Show', company_path(company), class: 'btn btn-primary'
+              td.font-weight-bold= company.name
+              td= link_to 'Show', company_path(company), class: 'btn btn-info'
               td= link_to 'Show', '#', class: 'btn btn-success'
