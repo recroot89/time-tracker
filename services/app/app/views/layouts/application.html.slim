@@ -2,7 +2,7 @@ doctype html
 html.h-100 lang="en"
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
-    / = favicon_link_tag image_path('favicon.png'), sizes: '16x16'
+    = favicon_link_tag image_path('favicon.png'), sizes: '16x16'
     title = content_for?(:page_title) ? yield(:page_title) : t('meta.default_page_title')
     = yield :head
     = csrf_meta_tags
