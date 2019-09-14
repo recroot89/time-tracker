@@ -1,0 +1,18 @@
+---
+default: &default
+  name: <%= Faker::Company.name %>
+  description: <%= Faker::Company.catch_phrase %>
+  code: <%= Faker::Company.sic_code %>
+  company: default
+
+google_finance:
+  name: Finance
+  description: Google's finance department
+  code: '42C'
+  company: google
+
+google_lawyers:
+  name: Lawyers
+  description: Google's lawyers department
+  code: '17A'
+  company: google
