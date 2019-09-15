@@ -5,6 +5,9 @@ en:
       auth_user:
         error:
           log_in: Please log in
+      employees:
+        index:
+          error: Parameters are not correct. Company or Department ID's are necessary
       sessions:
         create:
           success: You were successfully logged in

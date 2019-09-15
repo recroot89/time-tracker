@@ -1,10 +1,13 @@
 ---
 ru:
   flash:
-    auth_user:
-      error:
-        log_in: Пожалуйста, авторизуйтесь
     web:
+      auth_user:
+        error:
+          log_in: Пожалуйста, авторизуйтесь
+      employees:
+        index:
+          error: Неверные параметры для отображения списка сотрудников
       sessions:
         create:
           success: Вход успешно выполнен

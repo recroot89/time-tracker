@@ -9,6 +9,9 @@ class Web::EmployeesController < Web::ApplicationController
       @department = Department.find(params[:department_id])
       @employees = @department.employees.page(params[:page]).per(10)
     end
+  rescue ActiveRecord::RecordNotFound
+    f(:error)
+    redirect_to home_path
   end
 
   def new; end
