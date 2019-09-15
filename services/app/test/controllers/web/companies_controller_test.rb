@@ -3,7 +3,7 @@
 require 'test_helper'
 
 class Web::CompaniesControllerTest < ActionDispatch::IntegrationTest
-  test 'should redirect when user not logged in' do
+  test 'should redirect when user is not logged in' do
     company = companies(:apple)
     get company_url(company)
     assert_redirected_to login_path

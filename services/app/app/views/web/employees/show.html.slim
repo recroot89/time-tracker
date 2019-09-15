@@ -1,0 +1,26 @@
+.container
+  .row.d-flex
+    .col-lg-12.mx-auto
+      h1.text-center.mb-5 = "#{@employee.first_name} #{@employee.last_name}"
+  .row.d-flex
+    .col-lg-12.mx-auto
+      table.table.table-hover
+        thead.thead-dark
+          tr
+            th Personnel number
+            th Position
+            th TIN
+            th Birth date
+            th Hiring date
+            th Date of dismissal
+            th Action
+        tbody
+          tr
+            td= @employee.personnel_number
+            td= @employee.position
+            td= @employee.tin
+            td= @employee.birth_date
+            td= @employee.begin_date
+            td= @employee.end_date
+            td= link_to 'Edit', '#', class: 'btn btn-info'
+      = link_to 'Back', employees_path(company_id: @employee.company_id), class: 'btn btn-secondary'

@@ -1,0 +1,24 @@
+.container
+  .row.d-flex
+    .col-lg-12.mx-auto
+      h1.text-center.mb-5 = "#{@department&.name || @company&.name}'s employees"
+  .row.d-flex
+    .col-lg-6.mx-auto
+      table.table.table-borderless.table-hover
+        thead.thead-dark
+          tr
+            th Personnel number
+            th First name
+            th Last name
+            th Employees
+        tbody
+          - (@department&.employees|| @company&.employees).each  do |employee|
+            tr
+              td= employee.personnel_number
+              td= employee.first_name
+              td= employee.last_name
+              td= link_to 'Show', employee_path(employee), class: 'btn btn-info'
+      - if @company.nil?
+        = link_to 'Back', departments_path(company_id: @department.company_id), class: 'btn btn-secondary'
+      - else
+        = link_to 'Back', home_path, class: 'btn btn-secondary'
