@@ -5,9 +5,12 @@ en:
       auth_user:
         error:
           log_in: Please log in
+      departments:
+        index:
+          error: Wrong or bad parameters. Company ID is necessary
       employees:
         index:
-          error: Parameters are not correct. Company or Department ID's are necessary
+          error: Wrong or bad parameters. Company or Department ID's are necessary
       sessions:
         create:
           success: You were successfully logged in

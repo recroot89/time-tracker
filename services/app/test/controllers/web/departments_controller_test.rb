@@ -26,4 +26,25 @@ class Web::DepartmentsControllerTest < ActionDispatch::IntegrationTest
     get department_url(department)
     assert { response.status == 200 }
   end
+
+  test 'should redirect from index due to bad requests' do
+    user = users(:admin)
+    login_as(user)
+
+    get departments_url
+    assert { flash[:error] }
+    assert_redirected_to home_url
+
+    get departments_url(company_id: 'bad')
+    assert { flash[:error] }
+    assert_redirected_to home_url
+
+    get departments_url(department_id: 'bad')
+    assert { flash[:error] }
+    assert_redirected_to home_url
+
+    get departments_url(bad: 'bad')
+    assert { flash[:error] }
+    assert_redirected_to home_url
+  end
 end
