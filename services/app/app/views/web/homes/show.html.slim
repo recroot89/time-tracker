@@ -3,16 +3,18 @@
     .col-lg-12.mx-auto
       h1.text-center.mb-5 Your companies
   .row.d-flex
-    .col-lg-6.mx-auto
+    .col-lg-8.mx-auto
       table.table.table-borderless.table-hover
         thead.thead-dark
           tr
             th Name
             th Action
+            th Departments
             th Employees
         tbody
           - current_user.companies.each do |company|
             tr
               td.font-weight-bold= company.name
               td= link_to 'Show', company_path(company), class: 'btn btn-info'
-              td= link_to 'Show', '#', class: 'btn btn-success'
+              td= link_to 'Show', departments_path(company_id: company), class: 'btn btn-warning'
+              td= link_to 'Show', employees_path(company_id: company), class: 'btn btn-success'

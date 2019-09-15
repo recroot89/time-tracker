@@ -1,0 +1,19 @@
+.container
+  .row.d-flex
+    .col-lg-12.mx-auto
+      h1.text-center.mb-5 = "#{@company.name}'s departments"
+  .row.d-flex
+    .col-lg-6.mx-auto
+      table.table.table-borderless.table-hover
+        thead.thead-dark
+          tr
+            th Name
+            th Action
+            th Employees
+        tbody
+          - @company.departments.each do |dep|
+            tr
+              td= dep.name
+              td= link_to 'Show', department_path(dep), class: 'btn btn-info'
+              td= link_to 'Show', employees_path(department_id: dep.id), class: 'btn btn-success'
+      = link_to 'Back', home_path, class: 'btn btn-secondary'

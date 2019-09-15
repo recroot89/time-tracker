@@ -37,7 +37,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert { user.email == 'test@test.test' }
   end
 
-  test 'should not create user with blank email' do
+  test 'should not create user is with blank email' do
     params = {
       user: {
         name: 'Test',

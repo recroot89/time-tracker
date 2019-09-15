@@ -1,0 +1,20 @@
+.container
+  .row.d-flex
+    .col-lg-12.mx-auto
+      h1.text-center.mb-5 = @department.name
+  .row.d-flex
+    .col-lg-12.mx-auto
+      table.table.table-hover
+        thead.thead-dark
+          tr
+            th Code
+            th Description
+            th Action
+            th Employees
+        tbody
+          tr
+            td= @department.code
+            td= @department.description
+            td= link_to 'Edit', '#', class: 'btn btn-info'
+            td= link_to 'Show', employees_path(department_id: @department), class: 'btn btn-info'
+      = link_to 'Back', departments_path(company_id: @department.company_id), class: 'btn btn-secondary'
