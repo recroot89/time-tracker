@@ -4,8 +4,10 @@ class Web::EmployeesController < Web::ApplicationController
   def index
     if params[:department_id].nil?
       @company = Company.find(params[:company_id])
+      @employees = @company.employees.page(params[:page]).per(10)
     else
       @department = Department.find(params[:department_id])
+      @employees = @department.employees.page(params[:page]).per(10)
     end
   end
 

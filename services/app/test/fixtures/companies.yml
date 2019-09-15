@@ -10,3 +10,9 @@ apple:
 google:
   <<: *default
   name: Google
+
+galleys:
+  <<: *default
+  name: Galleys
+  work_hours: 10
+  work_days: 6

@@ -23,6 +23,8 @@ google_finance_first:
 
 google_finance_second:
   <<: *default
+  first_name: <%= Faker::Name.first_name %>
+  last_name: <%= Faker::Name.last_name %>
   position: Accountant
   personnel_number: G004
   tin: '5449015636'
@@ -42,6 +44,8 @@ google_lawyers_first:
 
 google_lawyers_second:
   <<: *default
+  first_name: <%= Faker::Name.first_name %>
+  last_name: <%= Faker::Name.last_name %>
   position: Lawyer
   personnel_number: G006
   tin: '5777924329'

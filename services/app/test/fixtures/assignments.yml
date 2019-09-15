@@ -7,6 +7,10 @@ admin_second:
   user: admin
   company: google
 
+admin_third:
+  user: admin
+  company: galleys
+
 client_first:
   user: client
   company: google

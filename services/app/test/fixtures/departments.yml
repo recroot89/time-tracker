@@ -16,3 +16,9 @@ google_lawyers:
   description: Google's lawyers department
   code: '17A'
   company: google
+
+galleys_rowers:
+  name: Rowers
+  description: No time to think while there is too much to do!
+  code: '666H'
+  company: galleys
