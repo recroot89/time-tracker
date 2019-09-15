@@ -1,0 +1,23 @@
+.container
+  .row.d-flex
+    .col-lg-12.mx-auto
+      h1.text-center.mb-5 Your companies
+  .row.d-flex
+    .col-lg-8.mx-auto
+      table.table.table-borderless.table-hover
+        thead.thead-dark
+          tr
+            th Company
+            th Departments
+            th Departments count
+            th Employees
+            th Employees count
+        tbody
+          - @companies.each do |company|
+            tr
+              td= link_to company.name, company_path(company), class: 'btn btn-info'
+              td= link_to 'Show', departments_path(company_id: company), class: 'btn btn-warning'
+              td.text-center= company.departments.count
+              td= link_to 'Show', employees_path(company_id: company), class: 'btn btn-success'
+              td.text-center= company.employees.count
+      = link_to 'Back', home_path, class: 'btn btn-secondary'
