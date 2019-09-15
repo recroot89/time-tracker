@@ -9,10 +9,14 @@
           tr
             th ID
             th Description
+            th Work days
+            th Work hours
             th Action
         tbody
           tr
             td= @company.id
             td= @company.description
+            td= @company.work_days
+            td= @company.work_hours
             td= link_to 'Edit', '#', class: 'btn btn-info'
       = link_to 'Back', home_path, class: 'btn btn-secondary'

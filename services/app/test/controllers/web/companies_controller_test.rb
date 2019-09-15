@@ -16,4 +16,6 @@ class Web::CompaniesControllerTest < ActionDispatch::IntegrationTest
     get company_url(user.companies.first)
     assert_response :success
   end
+
+  # TODO: add Company create update archive tests and validations
 end
