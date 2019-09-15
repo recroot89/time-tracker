@@ -11,6 +11,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'config'
 gem 'enumerize'
+gem 'kaminari'
 gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'webpacker', '~> 4.0'

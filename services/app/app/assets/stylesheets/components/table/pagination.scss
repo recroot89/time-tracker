@@ -1,0 +1,64 @@
+.paging-container {
+  height: 50px;
+  text-align: left;
+  margin-top: 20px;
+
+  .pagination {
+    cursor: pointer;
+    float: left;
+
+    span {
+      &+span {
+        margin-left: 10px;
+      }
+    }
+
+    @mixin page-mixin {
+      color: $grey;
+      border: 1px solid transparent;
+      font-weight: 400;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px 0 rgba(48, 75, 75, 0.3);
+      position: relative;
+      display: block;
+      padding: .5rem .75rem;
+      line-height: 1.25;
+    }
+
+    .first a,
+    .prev a,
+    .page a,
+    .next a,
+    .last a {
+      @include page-mixin;
+      background-color: $grey;
+      color: $tt-darkgrey;
+
+      &:focus,
+      &:hover {
+        background-color: #51a3a3;
+        color: $white !important;
+        box-shadow: none;
+      }
+    }
+
+    .page.current {
+      @include page-mixin;
+      color: $white;
+      background-color: #487575;
+
+      &:focus,
+      &:hover {
+        background-color: $grey;
+        color: $white !important;
+        box-shadow: none;
+      }
+    }
+
+    .page.gap {
+      @include page-mixin;
+      background-color: $white;
+      color: $tt-darkgrey;
+    }
+  }
+}
