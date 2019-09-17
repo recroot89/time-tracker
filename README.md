@@ -1,6 +1,6 @@
 # Time Tracker Rails Appication
 
-[![CircleCI](https://circleci.com/gh/recroot89/time-tracker.svg?style=svg&circle-token=1129b2b3257ff82e3e36e3ea7aa1d5f909ed24f2)](https://circleci.com/gh/recroot89/time-tracker)
+[![CircleCI](https://circleci.com/gh/recroot89/time-tracker.svg?style=svg&circle-token=1129b2b3257ff82e3e36e3ea7aa1d5f909ed24f2)](https://circleci.com/gh/recroot89/time-tracker) [![Maintainability](https://api.codeclimate.com/v1/badges/0ed6722f043c09cb2575/maintainability)](https://codeclimate.com/github/recroot89/time-tracker/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/0ed6722f043c09cb2575/test_coverage)](https://codeclimate.com/github/recroot89/time-tracker/test_coverage)
 
 ### Manual Setup
 

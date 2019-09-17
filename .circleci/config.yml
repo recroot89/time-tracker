@@ -48,6 +48,25 @@ jobs:
           name: Yarn install
           command: yarn install --cache-folder ~/.cache/yarn
 
+      - restore_cache:
+          name: Restore Code Climate cache
+          key: v1-code-climate-0.1.4
+
+      - run:
+          name: Install Code Climate Test Reporter
+          command: |
+            if [[ ! -x cc-test-reporter ]]
+            then
+              curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-0.1.4-linux-amd64 > ./cc-test-reporter
+              chmod +x ./cc-test-reporter
+            fi
+
+      - save_cache:
+          name: Save Code Climate cache
+          key: v1-code-climate-0.1.4
+          paths:
+            - ./cc-test-reporter
+
       # Store yarn / webpacker cache
       - save_cache:
           key: time-tracker-{{ checksum "yarn.lock" }}
@@ -69,3 +88,8 @@ jobs:
       - run:
           name: Run the tests
           command: bin/rake db:test:prepare && bin/rails test -d
+
+      - run:
+          name: Report code coverage to Code Climate
+          command: |
+            ./cc-test-reporter after-build -t simplecov --exit-code $? || true
