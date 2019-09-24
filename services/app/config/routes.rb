@@ -13,7 +13,11 @@ Rails.application.routes.draw do
 
     resources :companies, only: [:index, :show, :update]
     resources :departments, only: [:index, :show, :update]
-    resources :employees, only: [:index, :new, :show, :create, :update]
+    resources :employees, only: [:index, :new, :show, :create, :update] do
+      scope module: :employees do
+        resources :workdays, only: [:index, :create, :update]
+      end
+    end
 
     resource :home, only: [:show]
   end

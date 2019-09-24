@@ -22,5 +22,9 @@
             td= @employee.birth_date
             td= @employee.begin_date
             td= @employee.end_date
-            td= link_to 'Edit', '#', class: 'btn btn-info'
+            td
+              .btn-group.mr-3
+                = link_to 'Edit', '#', class: 'btn btn-info'
+              .btn-group
+                = link_to 'Workdays', employee_workdays_path(employee_id: @employee), class: 'btn btn-dark'
       = link_to 'Back', employees_path(company_id: @employee.company_id), class: 'btn btn-secondary'

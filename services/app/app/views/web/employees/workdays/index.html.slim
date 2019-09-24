@@ -1,0 +1,24 @@
+.container
+  .row.d-flex
+    .col-lg-12.mx-auto
+      h1.text-center.mb-5 = "#{@employee.first_name} #{@employee.last_name}'s workdays"
+  .row.d-flex
+    .col-lg-8.mx-auto
+      table.table.table-borderless.table-hover
+        thead.thead-dark
+          tr
+            th Year
+            th Month
+            th Day
+            th Hours
+        tbody
+          - @workdays.each do |workday|
+            tr
+              td= workday.year
+              td= workday.month
+              td= workday.day
+              td= workday.hours
+      .paging-container
+        = paginate @workdays
+
+      = link_to 'Back', employee_path(@employee), class: 'btn btn-secondary'

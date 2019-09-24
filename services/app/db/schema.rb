@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_15_145310) do
+ActiveRecord::Schema.define(version: 2019_09_15_211854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,18 @@ ActiveRecord::Schema.define(version: 2019_09_15_145310) do
     t.index ["company_id"], name: "index_departments_on_company_id"
   end
 
+  create_table "employee_workdays", force: :cascade do |t|
+    t.integer "year"
+    t.integer "month"
+    t.integer "day"
+    t.integer "hours"
+    t.bigint "employee_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["employee_id"], name: "index_employee_workdays_on_employee_id"
+    t.index ["year", "month", "day"], name: "index_employee_workdays_on_year_and_month_and_day", unique: true
+  end
+
   create_table "employees", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -75,6 +87,7 @@ ActiveRecord::Schema.define(version: 2019_09_15_145310) do
   add_foreign_key "assignments", "companies"
   add_foreign_key "assignments", "users"
   add_foreign_key "departments", "companies"
+  add_foreign_key "employee_workdays", "employees"
   add_foreign_key "employees", "companies"
   add_foreign_key "employees", "departments"
 end
