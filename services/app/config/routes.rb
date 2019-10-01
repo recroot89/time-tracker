@@ -19,6 +19,9 @@ Rails.application.routes.draw do
       end
     end
 
+    get '/request_report', to: 'reports#index'
+    get '/report', to: 'reports#show'
+
     resource :home, only: [:show]
   end
 

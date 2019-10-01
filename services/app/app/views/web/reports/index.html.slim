@@ -1,0 +1,17 @@
+.container
+  .row.d-flex
+    .col-lg-12.mx-auto
+      h1.text-center.mb-5 = "Create an report for #{@current_company.name}"
+  .row.d-flex
+    .col-lg-10.mx-auto
+      = simple_form_for :report, url: report_path, method: :get do |f|
+        .row
+          .col-lg-4.mx-auto
+            = f.input :department, collection: @current_company.departments, selected: 1
+          .col-lg-4.mx-auto
+            = f.input :year, collection: 1970..2030, selected: Time.zone.today.year
+            = f.input :month, collection: (1..12).map { |m| [I18n.t("date.month_names")[m], m] }, selected: Time.zone.today.month
+          .col-lg-10.mx-auto.mt-3
+            = f.submit 'Show report', class: 'btn btn-primary'
+          .col-lg-10.mx-auto.mt-5
+            = link_to 'Back', home_path, class: 'btn btn-secondary'
