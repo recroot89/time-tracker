@@ -2,9 +2,11 @@ db-recreate:
 	bin/rails db:drop db:create db:migrate db:seed
 
 start:
+	docker start ttdb
 	foreman start
 	
-server:
+run:
+	docker start ttdb
 	bin/rails s
 
 lint:
