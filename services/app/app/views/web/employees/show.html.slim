@@ -26,5 +26,5 @@
               .btn-group.mr-3
                 = link_to 'Edit', '#', class: 'btn btn-info'
               .btn-group
-                = link_to 'Workdays', employee_workdays_path(employee_id: @employee), class: 'btn btn-dark'
-      = link_to 'Back', employees_path(company_id: @employee.company_id), class: 'btn btn-secondary'
+                = link_to 'Workdays', department_employee_workdays_path(employee_id: @employee), class: 'btn btn-dark'
+      = link_to 'Back', department_employees_path(department_id: @employee.department_id, id: @employee_id), class: 'btn btn-secondary'

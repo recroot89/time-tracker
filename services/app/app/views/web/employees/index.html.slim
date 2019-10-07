@@ -1,7 +1,7 @@
 .container
   .row.d-flex
     .col-lg-12.mx-auto
-      h1.text-center.mb-3 = "#{@department&.name || @company&.name}'s employees"
+      h1.text-center.mb-3 = "#{@department.name || @company.name}'s employees"
   .row.d-flex
     .col-lg-8.mx-auto
       table.table.table-borderless.table-hover
@@ -10,8 +10,6 @@
             th Personnel number
             th First name
             th Last name
-            -if @department.nil?
-              th Department (code)
             th Action
         tbody
           - @employees.each  do |employee|
@@ -19,12 +17,8 @@
               td= employee.personnel_number
               td= employee.first_name
               td= employee.last_name
-              -if @department.nil?
-                td= "#{employee.department.name} (#{employee.department.code})"
-              td= link_to 'Show', employee_path(employee), class: 'btn btn-info'
+              td= link_to 'Show', department_employee_path(employee.department_id, id: employee.id), class: 'btn btn-info'
       .paging-container
         = paginate @employees
-      - if @company.nil?
-        = link_to 'Back', departments_path(company_id: @department.company_id), class: 'btn btn-secondary'
-      - else
-        = link_to 'Back', home_path, class: 'btn btn-secondary'
+      = link_to 'New', new_department_employee_path(@department), class: 'btn btn-primary mr-3'
+      = link_to 'Back', departments_path(company_id: @department.company_id), class: 'btn btn-secondary'
