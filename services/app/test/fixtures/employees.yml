@@ -7,7 +7,6 @@ default: &default
   tin: '6449013711'
   birth_date: 1990-09-14
   begin_date: 2013-06-07
-  company: default
   department: default
 
 google_finance_first:
@@ -18,7 +17,6 @@ google_finance_first:
   tin: '5449013712'
   birth_date: 1990-01-01
   begin_date: 2012-10-10
-  company: google
   department: google_finance
 
 google_finance_second:
@@ -28,7 +26,6 @@ google_finance_second:
   position: Accountant
   personnel_number: G004
   tin: '5449015636'
-  company: google
   department: google_finance
 
 google_lawyers_first:
@@ -39,7 +36,6 @@ google_lawyers_first:
   tin: '5777924329'
   birth_date: 1980-04-11
   begin_date: 2009-02-19
-  company: google
   department: google_lawyers
 
 google_lawyers_second:
@@ -51,5 +47,4 @@ google_lawyers_second:
   tin: '5777924329'
   birth_date: 1980-04-11
   begin_date: 2009-02-19
-  company: google
   department: google_lawyers

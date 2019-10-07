@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_15_211854) do
+ActiveRecord::Schema.define(version: 2019_10_07_125153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,11 +66,9 @@ ActiveRecord::Schema.define(version: 2019_09_15_211854) do
     t.date "birth_date"
     t.date "begin_date"
     t.date "end_date"
-    t.bigint "company_id", null: false
     t.bigint "department_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_id"], name: "index_employees_on_company_id"
     t.index ["department_id"], name: "index_employees_on_department_id"
     t.index ["personnel_number"], name: "index_employees_on_personnel_number", unique: true
   end
@@ -88,6 +86,5 @@ ActiveRecord::Schema.define(version: 2019_09_15_211854) do
   add_foreign_key "assignments", "users"
   add_foreign_key "departments", "companies"
   add_foreign_key "employee_workdays", "employees"
-  add_foreign_key "employees", "companies"
   add_foreign_key "employees", "departments"
 end
