@@ -4,8 +4,8 @@ require 'test_helper'
 
 class Web::EmployeesControllerTest < ActionDispatch::IntegrationTest
   test 'should redirect when user is not logged in' do
-    company = companies(:google)
-    get employees_url(company_id: company)
+    department = departments(:google_finance)
+    get department_employees_url(department)
     assert_redirected_to login_path
   end
 
@@ -13,12 +13,8 @@ class Web::EmployeesControllerTest < ActionDispatch::IntegrationTest
     user = users(:admin)
     login_as(user)
 
-    company = companies(:google)
-    get employees_url(company_id: company)
-    assert_response :success
-
     department = departments(:google_finance)
-    get employees_url(department_id: department)
+    get department_employees_url(department)
     assert_response :success
   end
 
@@ -26,19 +22,11 @@ class Web::EmployeesControllerTest < ActionDispatch::IntegrationTest
     user = users(:admin)
     login_as(user)
 
-    get employees_url
+    get department_employees_url(department_id: 'bad')
     assert { flash[:error] }
     assert_redirected_to home_url
 
-    get employees_url(company_id: 'bad')
-    assert { flash[:error] }
-    assert_redirected_to home_url
-
-    get employees_url(department_id: 'bad')
-    assert { flash[:error] }
-    assert_redirected_to home_url
-
-    get employees_url(bad: 'bad')
+    get department_employees_url(bad: 'bad')
     assert { flash[:error] }
     assert_redirected_to home_url
   end
@@ -57,12 +45,11 @@ class Web::EmployeesControllerTest < ActionDispatch::IntegrationTest
         tin: '1234567890',
         birth_date: 20.years.ago.to_date,
         begin_date: Time.zone.today,
-        department_id: @department.id,
-        company_id: @department.company_id
+        department_id: @department.id
       }
     }
 
-    post employees_url, params: params
+    post department_employees_url(department_id: @department.id), params: params
     assert_response :redirect
     assert { flash[:success] }
 
@@ -89,12 +76,11 @@ class Web::EmployeesControllerTest < ActionDispatch::IntegrationTest
         tin: '1234567890',
         birth_date: 20.years.ago.to_date,
         begin_date: Time.zone.today,
-        department_id: 'bad',
-        company_id: 'bad'
+        department_id: 'bad'
       }
     }
 
-    post employees_url, params: params
+    post department_employees_url(department_id: 'bad'), params: params
     assert_response :unprocessable_entity
     assert { flash[:error] }
   end
