@@ -12,12 +12,15 @@ Rails.application.routes.draw do
     delete '/logout',  to: 'sessions#destroy'
 
     resources :companies, only: [:index, :show, :update]
-    resources :departments, only: [:index, :show, :update]
-    resources :employees, only: [:index, :new, :show, :create, :update] do
-      scope module: :employees do
-        resources :workdays, only: [:index, :create, :update]
+    resources :departments, only: [:index, :show, :update] do
+      resources :employees, only: [:index, :new, :show, :create, :update] do
+        scope module: :employees do
+          resources :workdays, only: [:index, :create, :update]
+        end
       end
     end
+
+    get '/employees', to: 'employees#all'
 
     get '/request_report', to: 'reports#index'
     get '/report', to: 'reports#show'
