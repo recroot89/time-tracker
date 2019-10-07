@@ -11,6 +11,9 @@ en:
       employees:
         index:
           error: Wrong or bad parameters. Company or Department ID's are necessary
+        create:
+          error: Something went wrong
+          success: Employee successfully created
       sessions:
         create:
           success: You were successfully logged in
