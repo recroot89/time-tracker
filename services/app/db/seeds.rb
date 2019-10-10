@@ -21,8 +21,7 @@ puts 'Insert employees seeds'
     tin: SecureRandom.hex(4).upcase,
     birth_date: Faker::Date.birthday,
     begin_date: rand(1..10).years.ago,
-    company: Company.find_by(name: 'Galleys'),
-    department: Department.find_by(name: 'Rowers')
+    department: Department.where(name: 'Rowers', company_id: Company.find_by(name: 'Galleys')).first
   }
 
   t = Employee.new(params)
