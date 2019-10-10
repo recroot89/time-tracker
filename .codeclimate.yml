@@ -6,3 +6,7 @@ plugins:
     enabled: true
   reek:
     enabled: true
+exclude_patterns:
+  - services/app/babel.config.js
+  - services/app/app/controllers/concerns/flash_helper.rb
+  - services/app/config/initializers/simple_form_bootstrap.rb
