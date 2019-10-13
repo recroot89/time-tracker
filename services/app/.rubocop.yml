@@ -26,6 +26,10 @@ Style/NegatedIf:
 Metrics/AbcSize:
   Enabled: false
 
+Metrics/ClassLength:
+  Exclude:
+    - 'test/**/*.rb'
+
 Metrics/LineLength:
   Exclude:
     - 'config/initializers/simple_form_bootstrap.rb'
