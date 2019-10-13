@@ -4,7 +4,6 @@ class Web::EmployeesController < Web::ApplicationController
   def index
     @department = Department.find(params[:department_id])
     @employees = @department.employees.page(params[:page]).per(10)
-    @company = @department.company
   rescue ActiveRecord::RecordNotFound
     f(:error)
     redirect_to home_path
@@ -31,6 +30,11 @@ class Web::EmployeesController < Web::ApplicationController
       f(:error)
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show_all
+    @company = Company.find(params[:company_id])
+    @employees = Employee.where(department_id: @company.departments).includes(:department).page(params[:page]).per(10)
   end
 
   private

@@ -1,7 +1,7 @@
 .container
   .row.d-flex
     .col-lg-12.mx-auto
-      h1.text-center.mb-3 = "#{@department.name}'s employees"
+      h1.text-center.mb-3 = "#{@company.name}'s employees"
   .row.d-flex
     .col-lg-8.mx-auto
       table.table.table-borderless.table-hover
@@ -11,6 +11,7 @@
             th First name
             th Last name
             th Action
+            th Department
         tbody
           - @employees.each  do |employee|
             tr
@@ -18,7 +19,7 @@
               td= employee.first_name
               td= employee.last_name
               td= link_to 'Show', department_employee_path(employee.department_id, id: employee.id), class: 'btn btn-info'
+              td= employee.department.name
       .paging-container
         = paginate @employees
-      = link_to 'New', new_department_employee_path(@department), class: 'btn btn-primary mr-3'
-      = link_to 'Back', departments_path(company_id: @department.company_id), class: 'btn btn-secondary'
+      = link_to 'Back', companies_path(company_id: @company), class: 'btn btn-secondary'

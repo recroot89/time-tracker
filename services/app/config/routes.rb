@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       end
     end
 
-    get '/employees', to: 'employees#all'
+    get '/employees', to: 'employees#show_all'
 
     get '/request_report', to: 'reports#index'
     get '/report', to: 'reports#show'
