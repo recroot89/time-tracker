@@ -9,7 +9,7 @@ default: &default
   begin_date: 2013-06-07
   department: default
 
-google_finance_first:
+legros_finance_first:
   first_name: Larry
   last_name: Scott
   position: Accountant
@@ -17,18 +17,18 @@ google_finance_first:
   tin: '5449013712'
   birth_date: 1990-01-01
   begin_date: 2012-10-10
-  department: google_finance
+  department: legros_finance
 
-google_finance_second:
+legros_finance_second:
   <<: *default
   first_name: <%= Faker::Name.first_name %>
   last_name: <%= Faker::Name.last_name %>
   position: Accountant
   personnel_number: G004
   tin: '5449015636'
-  department: google_finance
+  department: legros_finance
 
-google_lawyers_first:
+legros_lawyers_first:
   first_name: Tom
   last_name: Sawyer
   position: Lawyer
@@ -36,9 +36,9 @@ google_lawyers_first:
   tin: '5777924329'
   birth_date: 1980-04-11
   begin_date: 2009-02-19
-  department: google_lawyers
+  department: legros_lawyers
 
-google_lawyers_second:
+legros_lawyers_second:
   <<: *default
   first_name: <%= Faker::Name.first_name %>
   last_name: <%= Faker::Name.last_name %>
@@ -47,4 +47,4 @@ google_lawyers_second:
   tin: '5777924329'
   birth_date: 1980-04-11
   begin_date: 2009-02-19
-  department: google_lawyers
+  department: legros_lawyers

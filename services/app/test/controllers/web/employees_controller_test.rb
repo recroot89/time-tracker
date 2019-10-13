@@ -4,7 +4,7 @@ require 'test_helper'
 
 class Web::EmployeesControllerTest < ActionDispatch::IntegrationTest
   test 'should redirect when user is not logged in' do
-    department = departments(:google_finance)
+    department = departments(:legros_finance)
     get department_employees_url(department)
     assert_redirected_to login_path
   end
@@ -13,7 +13,7 @@ class Web::EmployeesControllerTest < ActionDispatch::IntegrationTest
     user = users(:admin)
     login_as(user)
 
-    department = departments(:google_finance)
+    department = departments(:legros_finance)
     get department_employees_url(department)
     assert_response :success
   end
@@ -34,7 +34,7 @@ class Web::EmployeesControllerTest < ActionDispatch::IntegrationTest
   test 'should create employee' do
     user = users(:admin)
     login_as(user)
-    @department = departments(:google_lawyers)
+    @department = departments(:legros_lawyers)
 
     params = {
       employee: {

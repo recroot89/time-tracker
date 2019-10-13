@@ -5,17 +5,17 @@ default: &default
   code: <%= Faker::Company.sic_code %>
   company: default
 
-google_finance:
+legros_finance:
   name: Finance
-  description: Google's finance department
+  description: Legros's finance department
   code: '42C'
-  company: google
+  company: legros
 
-google_lawyers:
+legros_lawyers:
   name: Lawyers
-  description: Google's lawyers department
+  description: Legros's lawyers department
   code: '17A'
-  company: google
+  company: legros
 
 galleys_rowers:
   name: Rowers

@@ -1,11 +1,11 @@
 ---
 admin_first:
   user: admin
-  company: apple
+  company: maggio
 
 admin_second:
   user: admin
-  company: google
+  company: legros
 
 admin_third:
   user: admin
@@ -13,4 +13,4 @@ admin_third:
 
 client_first:
   user: client
-  company: google
+  company: legros

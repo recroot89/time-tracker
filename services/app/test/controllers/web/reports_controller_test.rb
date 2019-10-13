@@ -4,7 +4,7 @@ require 'test_helper'
 
 class Web::ReportsControllerTest < ActionDispatch::IntegrationTest
   test 'should redirect when user is not logged in' do
-    company = companies(:google)
+    company = companies(:legros)
 
     get request_report_url(company_id: company)
     assert_redirected_to login_path
@@ -14,7 +14,7 @@ class Web::ReportsControllerTest < ActionDispatch::IntegrationTest
     user = users(:admin)
     login_as(user)
 
-    company = companies(:google)
+    company = companies(:legros)
 
     get request_report_url(company_id: company)
     assert { response.status == 200 }
@@ -24,7 +24,7 @@ class Web::ReportsControllerTest < ActionDispatch::IntegrationTest
     user = users(:admin)
     login_as(user)
 
-    department = departments(:google_finance)
+    department = departments(:legros_finance)
 
     params = {
       report: {

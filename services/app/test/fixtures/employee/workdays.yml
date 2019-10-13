@@ -1,21 +1,21 @@
 ---
-day_one_google_finance_first:
+day_one_legros_finance_first:
   year: 2019
   month: 9
   day: 1
   hours: 8
-  employee: google_finance_first
+  employee: legros_finance_first
 
-day_two_google_finance_first:
+day_two_legros_finance_first:
   year: 2019
   month: 9
   day: 2
   hours: 8
-  employee: google_finance_first
+  employee: legros_finance_first
 
-day_three_google_finance_first:
+day_three_legros_finance_first:
   year: 2019
   month: 9
   day: 3
   hours: 8
-  employee: google_finance_first
+  employee: legros_finance_first
