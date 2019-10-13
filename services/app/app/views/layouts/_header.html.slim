@@ -22,7 +22,7 @@ header
         ul.navbar-nav.ml-auto.tt-navbar__nav
           - if logged_in?
             li.nav-item.tt-navbar__nav-link
-              = link_to 'Logout', logout_path, method: :delete, class: 'nav-link'
+              = link_to "Logout (#{current_user.name})", logout_path, method: :delete, class: 'nav-link'
           - else 
             li.nav-item.tt-navbar__nav-link
               = link_to 'Login', login_path, class: 'nav-link'

@@ -5,9 +5,7 @@
     .col-lg-2.mx-auto.mb-5
       = link_to 'Your companies', companies_path, class: 'btn btn-secondary'
   .row.d-flex
-    .col-lg-3.mx-auto
-      table.table.table-borderless
-        tbody
-          - current_user.companies.each do |company|
-            tr
-              td= link_to "Report request for #{company.name}", request_report_path(company_id: company), class: 'btn btn-info'
+    - current_user.companies.each do |company|
+      .col-lg-4.mx-auto
+        .card.card-body.border-0.bg-light
+          = link_to "Report request for #{company.name}", request_report_path(company_id: company), class: 'btn btn-info'
