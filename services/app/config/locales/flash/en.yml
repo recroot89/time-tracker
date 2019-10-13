@@ -14,6 +14,9 @@ en:
         create:
           error: Something went wrong
           success: Employee successfully created
+        update:
+          error: Something went wrong
+          success: Employee successfully updated
       sessions:
         create:
           success: You were successfully logged in

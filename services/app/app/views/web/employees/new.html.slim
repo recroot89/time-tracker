@@ -1,2 +1,17 @@
-h1 Web::Employees#new
-p Find me in app/views/web/employees/new.html.slim
+.container
+  .row.d-flex
+    .col-lg-12.mx-auto
+      h1.text-center.mb-5 = "Create an employee"
+  .row.d-flex
+    .col-lg-6.mx-auto
+      = simple_form_for @employee, url: employees_path do |f|
+        = f.input :first_name
+        = f.input :last_name
+        = f.input :position
+        = f.input :personnel_number
+        = f.input :tin
+        = f.input :birth_date, as: :date, html5: true
+        = f.input :begin_date, label: 'Date of hiring', as: :date, html5: true
+        = f.submit class: 'btn btn-primary'
+    .col-lg-10.mx-auto.mt-5
+      = link_to 'Back', department_employees_path(department_id: params[:department_id]), class: 'btn btn-secondary'

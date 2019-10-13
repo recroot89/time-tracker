@@ -9,15 +9,17 @@ class Web::EmployeesController < Web::ApplicationController
     redirect_to home_path
   end
 
-  def new
-    @employee = Employee.new
-  end
-
   def show
     @employee = Employee.find(params[:id])
   end
 
-  def update; end
+  def new
+    @employee = Employee.new
+  end
+
+  def edit
+    @employee = Employee.find(params[:id])
+  end
 
   def create
     @employee = Employee.new(employee_params)
@@ -29,6 +31,20 @@ class Web::EmployeesController < Web::ApplicationController
     else
       f(:error)
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    @employee = Employee.find(params[:id])
+    @employee.attributes = employee_params
+
+    if @employee.valid?
+      @employee.save!
+      f(:success)
+      redirect_to edit_department_employee_url(department_id: @employee.department_id, id: @employee)
+    else
+      f(:error)
+      render :edit, status: :unprocessable_entity
     end
   end
 
