@@ -4,7 +4,7 @@
 
 ### Setup
 
-1. Install ansible, docker, nodejs, yarn and ruby 2.6.4 with asdf (advanced), rvm (recommended) or rbenv
+1. Install ansible, docker, nodejs, yarn and ruby 2.6.5 with asdf (advanced), rvm (recommended) or rbenv
 
 2. Clone the repo and go to project folder
 
