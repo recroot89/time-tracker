@@ -46,7 +46,7 @@ class Web::EmployeesControllerTest < ActionDispatch::IntegrationTest
     department = departments(:legros_finance)
     employee = department.employees.first
 
-    get edit_department_employee_url(department_id: department, id: employee)
+    get edit_employee_url(employee)
     assert_response :success
   end
 
@@ -121,7 +121,7 @@ class Web::EmployeesControllerTest < ActionDispatch::IntegrationTest
       }
     }
 
-    patch department_employee_url(department_id: employee.department_id, id: employee), params: params
+    patch employee_url(employee), params: params
     assert_response :redirect
     assert { flash[:success] }
 

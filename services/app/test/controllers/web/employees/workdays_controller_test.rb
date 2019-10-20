@@ -6,7 +6,7 @@ class Web::Employees::WorkdaysControllerTest < ActionDispatch::IntegrationTest
   test 'should redirect when user is not logged in' do
     employee = employees(:legros_finance_first)
 
-    get department_employee_workdays_url(department_id: employee.department_id, employee_id: employee)
+    get employee_workdays_url(employee)
     assert_redirected_to login_path
   end
 
@@ -15,7 +15,7 @@ class Web::Employees::WorkdaysControllerTest < ActionDispatch::IntegrationTest
     login_as(user)
     employee = employees(:legros_finance_first)
 
-    get department_employee_workdays_url(department_id: employee.department_id, employee_id: employee)
+    get employee_workdays_url(employee)
     assert { response.status == 200 }
   end
 end

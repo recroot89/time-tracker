@@ -41,7 +41,7 @@ class Web::EmployeesController < Web::ApplicationController
     if @employee.valid?
       @employee.save!
       f(:success)
-      redirect_to edit_department_employee_url(department_id: @employee.department_id, id: @employee)
+      redirect_to edit_employee_url(@employee)
     else
       f(:error)
       render :edit, status: :unprocessable_entity

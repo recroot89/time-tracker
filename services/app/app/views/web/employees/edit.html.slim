@@ -4,7 +4,7 @@
       h1.text-center.mb-5 Edit employee
   .row.d-flex
     .col-lg-6.mx-auto
-      = simple_form_for @employee, url: department_employee_path, method: :patch do |f|
+      = simple_form_for @employee, url: employee_path, method: :patch do |f|
         = f.input :id, type: :hidden, value: @employee.id 
         = f.input :first_name
         = f.input :last_name

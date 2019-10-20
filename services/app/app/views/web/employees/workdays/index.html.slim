@@ -21,4 +21,4 @@
       .paging-container
         = paginate @workdays
 
-      = link_to 'Back', department_employee_path(department_id: @employee.department_id, id:@employee), class: 'btn btn-secondary'
+      = link_to 'Back', employee_path(@employee), class: 'btn btn-secondary'

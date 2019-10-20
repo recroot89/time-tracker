@@ -17,8 +17,8 @@
               td= employee.personnel_number
               td= employee.first_name
               td= employee.last_name
-              td= link_to 'Show', department_employee_path(employee.department_id, id: employee.id), class: 'btn btn-info'
+              td= link_to 'Show', employee_path(employee), class: 'btn btn-info'
       .paging-container
         = paginate @employees
-      = link_to 'New', new_department_employee_path(@department), class: 'btn btn-primary mr-3'
+      = link_to 'New', new_employee_path, class: 'btn btn-primary mr-3'
       = link_to 'Back', departments_path(company_id: @department.company_id), class: 'btn btn-secondary'
