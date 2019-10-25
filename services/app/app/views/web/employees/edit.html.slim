@@ -5,7 +5,6 @@
   .row.d-flex
     .col-lg-6.mx-auto
       = simple_form_for @employee, url: employee_path, method: :patch do |f|
-        = f.input :id, type: :hidden, value: @employee.id 
         = f.input :first_name
         = f.input :last_name
         = f.input :position

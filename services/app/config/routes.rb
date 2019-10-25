@@ -15,13 +15,13 @@ Rails.application.routes.draw do
     resources :departments, only: [:index, :show, :update] do
       resources :employees, shallow: true
     end
-    resources :employees, only: [:index, :show, :new, :edit, :create, :update] do
+    resources :employees, only: [:show, :edit, :update] do
       scope module: :employees do
         resources :workdays, only: [:index, :create, :update]
       end
     end
 
-    get '/employees', to: 'employees#show_all'
+    get '/company_employees', to: 'employees#show_all'
 
     get '/request_report', to: 'reports#index'
     get '/report', to: 'reports#show'

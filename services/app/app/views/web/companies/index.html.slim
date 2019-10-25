@@ -15,5 +15,5 @@
             tr
               td= link_to company.name, company_path(company), class: 'btn btn-info'
               td= link_to 'Show', departments_path(company_id: company), class: 'btn btn-warning'
-              td= link_to 'Show', employees_path(company_id: company), class: 'btn btn-success'
+              td= link_to 'Show', company_employees_path(company_id: company), class: 'btn btn-success'
       = link_to 'Back', home_path, class: 'btn btn-secondary'

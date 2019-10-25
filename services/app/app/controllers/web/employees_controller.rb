@@ -15,6 +15,7 @@ class Web::EmployeesController < Web::ApplicationController
 
   def new
     @employee = Employee.new
+    @department = @employee.department_id || params[:department_id]
   end
 
   def edit
@@ -23,6 +24,7 @@ class Web::EmployeesController < Web::ApplicationController
 
   def create
     @employee = Employee.new(employee_params)
+    @department = @employee.department_id || params[:department_id]
 
     if @employee.valid?
       @employee.save!
@@ -58,7 +60,7 @@ class Web::EmployeesController < Web::ApplicationController
   def employee_params
     params.require(:employee).permit(
       :first_name, :last_name, :position, :personnel_number, :tin,
-      :birth_date, :begin_date, :company_id, :department_id
+      :birth_date, :begin_date, :end_date, :department_id
     )
   end
 end

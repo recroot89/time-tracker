@@ -1,2 +1,8 @@
-h1 Web::Reports#show
-p Find me in app/views/web/reports/show.html.slim
+.container
+  .row.d-flex
+    .col-lg-12.mx-auto
+      h1.text-center.mb-5 = "#{@department.name} / #{Date::MONTHNAMES[@month]}, #{@year}"
+  .row.d-flex
+    .col-lg-12.mx-auto
+      = simple_form_for :report, url: report_path, method: :patch do |f|
+        .row

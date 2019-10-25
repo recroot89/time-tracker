@@ -24,7 +24,7 @@
             td= @employee.end_date
             td
               .btn-group.mr-3
-                = link_to 'Edit', edit_department_employee_path(department_id: @employee.department_id, id: @employee), class: 'btn btn-info'
+                = link_to 'Edit', edit_employee_path(@employee), class: 'btn btn-info'
               .btn-group
-                = link_to 'Workdays', department_employee_workdays_path(employee_id: @employee), class: 'btn btn-dark'
-      = link_to 'Back', department_employees_path(department_id: @employee.department_id, id: @employee), class: 'btn btn-secondary'
+                = link_to 'Workdays', employee_workdays_path(@employee), class: 'btn btn-dark'
+      = link_to 'Back', department_employees_path(department_id: @employee.department_id), class: 'btn btn-secondary'

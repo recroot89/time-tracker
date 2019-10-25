@@ -4,7 +4,8 @@
       h1.text-center.mb-5 = "Create an employee"
   .row.d-flex
     .col-lg-6.mx-auto
-      = simple_form_for @employee, url: employees_path do |f|
+      = simple_form_for @employee, url: department_employees_path do |f|
+        = f.hidden_field :department_id, value: @department
         = f.input :first_name
         = f.input :last_name
         = f.input :position
@@ -14,4 +15,4 @@
         = f.input :begin_date, label: 'Date of hiring', as: :date, html5: true
         = f.submit class: 'btn btn-primary'
     .col-lg-10.mx-auto.mt-5
-      = link_to 'Back', department_employees_path(department_id: params[:department_id]), class: 'btn btn-secondary'
+      = link_to 'Back', department_employees_path(department_id: @department), class: 'btn btn-secondary'
