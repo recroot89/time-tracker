@@ -53,13 +53,16 @@ jobs:
           key: v1-code-climate-0.1.4
 
       - run:
-          name: Install Code Climate Test Reporter
+          name: Download cc-test-reporter
           command: |
-            if [[ ! -x cc-test-reporter ]]
-            then
-              curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-0.1.4-linux-amd64 > ./cc-test-reporter
-              chmod +x ./cc-test-reporter
-            fi
+            mkdir -p tmp/
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
+            chmod +x ./tmp/cc-test-reporter
+
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - cc-test-reporter
 
       - save_cache:
           name: Save Code Climate cache
@@ -87,9 +90,16 @@ jobs:
 
       - run:
           name: Run the tests
-          command: bin/rake db:test:prepare && bin/rails test -d
+          command: |
+            bin/rake db:test:prepare && bin/rails test -d
+            ./tmp/cc-test-reporter format-coverage -t simplecov -o tmp/codeclimate.backend.json coverage/backend/.resultset.json
 
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - codeclimate.backend.json
       - run:
           name: Report code coverage to Code Climate
           command: |
-            ./cc-test-reporter after-build -t simplecov --exit-code $? || true
+            ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
+            ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
