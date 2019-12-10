@@ -183,7 +183,8 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.10)
     public_suffix (4.0.1)
-    puma (3.12.2)
+    puma (4.3.1)
+      nio4r (~> 2.0)
     rack (2.0.7)
     rack-proxy (0.6.5)
       rack
@@ -330,8 +331,8 @@ DEPENDENCIES
   minitest-power_assert
   pg
   pry-byebug
-  puma (~> 3.11)
-  rails (~> 6.0.0)
+  puma (~> 4.1)
+  rails (~> 6.0.1)
   react-rails (~> 2.6)
   rubocop
   rubocop-performance
