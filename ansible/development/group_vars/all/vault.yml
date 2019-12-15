@@ -2,3 +2,5 @@ time_tracker_vault_db_name: ''
 time_tracker_vault_db_username: app
 time_tracker_vault_db_password: ''
 time_tracker_vault_db_hostname: localhost
+
+time_tracker_vault_admins: admin@test.local

@@ -10,3 +10,5 @@ db_username: <%= ENV.fetch('DB_USERNAME', 'postgres') %>
 db_password: <%= ENV.fetch('DB_PASSWORD', '') %>
 db_hostname: <%= ENV.fetch('DB_HOSTNAME', 'localhost') %>
 db_port: <%= ENV.fetch('DB_PORT', '5432') %>
+
+admins: <%= ENV.fetch('ADMINS', 'test') %>
