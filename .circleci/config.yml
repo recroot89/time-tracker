@@ -13,7 +13,7 @@ jobs:
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: time_tracker_test
-          POSTGRES_PASSWORD: ''
+          POSTGRES_PASSWORD: password
     steps:
       - checkout:
           path: ~/time-tracker
