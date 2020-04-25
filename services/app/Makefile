@@ -4,7 +4,7 @@ db-recreate:
 start:
 	docker start ttdb
 	foreman start
-	
+
 run:
 	docker start ttdb
 	bin/rails s
